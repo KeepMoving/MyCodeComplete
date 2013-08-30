@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT gridbag (row)*>  <!-- 一个xml顶层元素可包含0个或多个row元素 -->
+<!ELEMENT row (cell)*>     <!-- 一个row元素可包含0个或多个cell元素-->
+<!ELEMENT cell (bean)*>    <!-- 一个cell元素可包含0个或多个bean元素-->
+<!ATTLIST cell gridx CDATA #IMPLIED>   <!-- 一个cell元素节点可包含gridx属性 -->
+<!ATTLIST cell gridy CDATA #IMPLIED>   <!-- 一个cell元素节点可包含gridy属性 -->
+<!ATTLIST cell gridwidth CDATA "1">    <!-- 一个cell元素节点可包含gridwidth属性 -->
+<!ATTLIST cell gridheight CDATA "1">   <!-- 一个cell元素节点可包含gridheight属性 -->
+<!ATTLIST cell weightx CDATA "0">      <!-- 一个cell元素节点可包含weightx属性 -->
+<!ATTLIST cell weighty CDATA "0">      <!-- 一个cell元素节点可包含weighty属性 -->
+<!ATTLIST cell fill (NONE|BOTH|HORIZONTAL|VERTICAL) "NONE">       <!-- 一个cell元素节点可包含fill属性，类型默认为NONE -->
+<!-- 一个cell元素节点可包含anchor属性，类型默认为CENTER -->
+<!ATTLIST cell anchor (CENTER|NORTH|NORTHEAST|EAST|SOUTHEAST|SOUTH|SOUTHWEST|WEST|NORTHWEST) "CENTER">
+<!ATTLIST cell ipadx CDATA "0">        <!-- 一个cell元素节点可包含ipadx属性 -->
+<!ATTLIST cell ipady CDATA "0">        <!-- 一个cell元素节点可包含ipady属性 -->
+
+<!ELEMENT bean (class,property*)>      <!-- 一个bean元素节点包含一个class节点元素和0个或多个property节点元素 -->
+<!ATTLIST bean id ID #IMPLIED>         <!-- 一个bean元素节点包含一个id属性，而且是必须的 -->
+
+<!-- 定义元素内容属性 -->
+<!ELEMENT class (#PCDATA)>                 <!-- class元素内容为文本 -->
+<!ELEMENT property (name,value)>           <!-- property元素内容包含name节点和value节点 -->
+<!ELEMENT name (#PCDATA)>                  <!-- name元素内容为文本 -->
+<!ELEMENT value (int|string|boolean|bean)> <!-- value元素内容的类型为int或string或boolean或bean -->
+<!ELEMENT int (#PCDATA)>                   <!-- int元素内容为文本 -->
+<!ELEMENT string (#PCDATA)>                <!-- string元素内容为文本 -->
+<!ELEMENT boolean (#PCDATA)>               <!-- boolean元素内容为文本 -->
